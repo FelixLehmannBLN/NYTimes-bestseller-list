@@ -5,3 +5,15 @@
 img {
   height: 50px;
 }
+
+.fa-arrow-circle-up {
+  color: green;
+}
+
+.fa-arrow-circle-down {
+  color: red;
+}
+
+.circle {
+  color: deepskyblue;
+}

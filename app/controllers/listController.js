@@ -10,6 +10,16 @@
       this.reverse = !this.reverse;
     }
 
+    this.rankChange = function(rank, oldRank) {
+      if (rank > oldRank) {
+          return "fa fa-arrow-circle-up";
+      } else if (rank < oldRank) {
+          return "fa fa-arrow-circle-down";
+      } else {
+          return "circle";
+      }
+    }
+
     // just to check if resource is loaded
     console.log(this.listResult);
   }

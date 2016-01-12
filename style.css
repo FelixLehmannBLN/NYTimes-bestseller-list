@@ -1,3 +1,6 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
 .booktitle {
   text-transform: capitalize;
 }
@@ -16,4 +19,8 @@ img {
 
 .circle {
   color: deepskyblue;
+}
+
+.clickable {
+  cursor: pointer;
 }

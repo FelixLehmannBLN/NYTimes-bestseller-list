@@ -1,24 +1,25 @@
 <div>
   <div class="panel panel-default">
     <div class="panel-heading">NY Times Bestseller Liste - "{{ctrl.listResult.results.list_name}}" vom {{ctrl.listResult.results.bestsellers_date | date: 'dd.MM.yyyy'}}</div>
-      <table class="table">
-        <tr>
-          <th></th>
-          <th ng-click="ctrl.sort('rank')">Platz</th>
-          <th ng-click="ctrl.sort('title')">Titel</th>
-          <th ng-click="ctrl.sort('author')">Autor</th>
-          <th ng-click="ctrl.sort('rank_last_week')">Vorwoche</th>
-          <th></th>
-        </tr>
-        <tr ng-repeat="book in ctrl.listResult.results.books | orderBy:ctrl.sortBy:ctrl.reverse">
-          <td><img ng-src="{{book.book_image}}" alt="{{book.title}} Cover"></td>
-          <td>{{ book.rank }}</td>
-          <td class="booktitle">{{ book.title | lowercase }}</td>
-          <td>{{ book.author }}</td>
-          <td>{{ book.rank_last_week }}</td>
-          <td><i ng-class="ctrl.rankChange(book.rank, book.rank_last_week)"></i></td>
-        </tr>
-      </table>
+    <table class="table">
+      <tr>
+        <th></th>
+        <th ng-click="ctrl.sort('rank')">Platz</th>
+        <th ng-click="ctrl.sort('title')">Titel</th>
+        <th ng-click="ctrl.sort('author')">Autor</th>
+        <th ng-click="ctrl.sort('rank_last_week')">Vorwoche</th>
+        <th></th>
+      </tr>
+      <tr ng-repeat="book in ctrl.listResult.results.books | orderBy:ctrl.sortBy:ctrl.reverse">
+        <td><img ng-src="{{book.book_image}}" alt="{{book.title}} Cover"></td>
+        <td>{{ book.rank }}</td>
+        <td class="booktitle">{{ book.title | lowercase }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.rank_last_week }}</td>
+        <td><i ng-class="ctrl.rankChange(book.rank, book.rank_last_week)"></i></td>
+      </tr>
+    </table>
+    <div class="panel-footer">{{ ctrl.listResult.copyright }}</div>
     </div>
   </div>
 </div>

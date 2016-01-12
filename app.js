@@ -1,6 +1,7 @@
 // module
 var bestsellerApp = angular.module('bestsellerApp', ['ngRoute', 'ngResource']);
 
+// setting routes
 bestsellerApp.config(function ($routeProvider){
 
   $routeProvider
@@ -9,4 +10,6 @@ bestsellerApp.config(function ($routeProvider){
     templateUrl: 'pages/list.html',
     controller: 'listController'
   })
-})
+
+});
+

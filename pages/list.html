@@ -3,3 +3,28 @@
     <h2>This is my bestseller list</h2>
   </div>
 </div>
+
+<div>
+  <div class="row">
+    <div class="col-md-12">
+      <table>
+        <tr>
+          <th></th>
+          <th ng-click="ctrl.sort('rank')">Platz</th>
+          <th ng-click="ctrl.sort('title')">Titel</th>
+          <th ng-click="ctrl.sort('author')">Autor</th>
+          <th ng-click="ctrl.sort('rank_last_week')">Vorwoche</th>
+          <th></th>
+        </tr>
+        <tr ng-repeat="book in ctrl.listResult.results.books | orderBy:ctrl.sortBy:ctrl.reverse">
+          <td><img ng-src="{{book.book_image}}" alt="{{book.title}} Cover"></td>
+          <td>{{ book.rank }}</td>
+          <td class="booktitle">{{ book.title | lowercase }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.rank_last_week }}</td>
+          <td>VERÄNDERUNG ICON</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

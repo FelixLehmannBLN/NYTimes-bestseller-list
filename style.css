@@ -17,9 +17,11 @@ img {
   color: red;
 }
 
-.circle {
+.fa-arrow-circle-right {
   color: deepskyblue;
 }
+
+
 
 .clickable {
   cursor: pointer;

@@ -1,6 +1,6 @@
 (function() {
   function listController ($resource) {
-    this.listAPI = $resource("http://api.nytimes.com/svc/books/v3/lists/mass-market-paperback.json?callback=books&api-key=sample-key");
+    this.listAPI = $resource("http://api.nytimes.com/svc/books/v3/lists/hardcover-fiction.json?callback=books&api-key=sample-key");
     this.listResult = this.listAPI.get();
 
     this.sortBy = 'rank';
@@ -11,12 +11,14 @@
     }
 
     this.rankChange = function(rank, oldRank) {
-      if (rank > oldRank) {
+      if (rank < oldRank) {
           return "fa fa-arrow-circle-up";
-      } else if (rank < oldRank) {
+      } else if (rank > oldRank && oldRank !== 0) {
           return "fa fa-arrow-circle-down";
-      } else {
-          return "circle";
+      } else if ( rank === oldRank ) {
+          return "fa fa-arrow-circle-right";
+      }else {
+          return "fa fa-circle";
       }
     }
 

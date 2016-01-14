@@ -12,7 +12,7 @@
       <th></th>
     </tr>
     <tr ng-repeat="book in ctrl.listResult.results.books | orderBy:ctrl.sortBy:ctrl.reverse">
-      <td><img ng-src="{{book.book_image}}" alt="{{book.title}} Cover"></td>
+      <td><img ng-src="{{book.book_image}}" alt="{{book.title}} Cover" /></td>
       <td>{{ book.rank }}</td>
       <td class="booktitle">{{ book.title | lowercase }}</td>
       <td>{{ book.author }}</td>

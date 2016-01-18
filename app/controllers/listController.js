@@ -1,16 +1,25 @@
 (function() {
-  function listController ($resource) {
-    this.listAPI = $resource("http://api.nytimes.com/svc/books/v3/lists/hardcover-fiction.json?callback=books&api-key=sample-key");
-    this.listResult = this.listAPI.get();
+  function listController ($resource, listsFactory) {
+    var self = this;
+    self.listAPI = $resource("http://api.nytimes.com/svc/books/v3/lists/hardcover-fiction.json?callback=books&api-key=sample-key");
+    self.listResult = self.listAPI.get();
 
-    this.sortBy = 'rank';
-    this.reverse = false;
-    this.sort = function(sortProperty) {
-      this.sortBy = sortProperty;
-      this.reverse = !this.reverse;
+    self.listNames = [];
+
+    function init() {
+      self.listNames = listsFactory.getListNames();
     }
 
-    this.rankChange = function(rank, oldRank) {
+    init();
+
+    self.sortBy = 'rank';
+    self.reverse = false;
+    self.sort = function(sortProperty) {
+      self.sortBy = sortProperty;
+      self.reverse = !self.reverse;
+    }
+
+    self.rankChange = function(rank, oldRank) {
       if (rank < oldRank) {
           return "fa fa-arrow-circle-up";
       } else if (rank > oldRank && oldRank !== 0) {
@@ -23,10 +32,10 @@
     }
 
     // just to check if resource is loaded
-    console.log(this.listResult);
+    console.log(self.listNames);
   }
 
-  listController.$inject = ['$resource']
+  listController.$inject = ['$resource', 'listsFactory']
   // assign controller
   bestsellerApp.controller('listController', listController);
 

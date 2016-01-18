@@ -5,7 +5,7 @@ var bestsellerApp = angular.module('bestsellerApp', ['ngRoute', 'ngResource'])
   .config(function($routeProvider){
     $routeProvider
       .when('/', {
-        controller: 'listController',
+        controller: 'listController as ctrl',
         templateUrl: 'pages/list.html'
       });
      $routeProvider.otherwise({
